@@ -1,0 +1,50 @@
+body {
+    max-width: 1000px; /*Skærmen kan max blive 1000px*/
+    margin: auto; /*Uden auto fordeler margin sig ikke ens på begge sider, når der trækkes i skærmen*/
+    font-size: 2em;
+}
+
+#container {
+    background-color: dodgerblue;
+    display: grid;
+    grid-gap: 5px;
+    grid-template-areas:
+            'H H H'
+            'L M A'
+            'F F F';
+    grid-template-columns: 1fr 4fr 1fr;
+    grid-template-rows: 100px auto 100px; /*Virker kun hvis vi skriver height: 100vh*/
+    height: 100vh; /*Vh er viewport height. Relativt til viewport, så tror 50 er 50% af viewport (skærmen),
+                    Procent virker ikke, men så er man nødt til at give en height 100% på body*/
+}
+
+.Header{
+    background-color: lightblue;
+    text-align: center;
+    grid-area: H;
+}
+.Menu {
+    background-color: lightblue;
+    text-align: center;
+    grid-area: L;
+}
+.Main{
+    background-color: lightblue;
+    text-align: center;
+    grid-area: M;
+}
+.Aside {
+    background-color: lightblue;
+    text-align: center;
+    grid-area: A;
+}
+.Footer {
+    background-color: lightblue;
+    text-align: center;
+    grid-area: F;
+}
+
+#container > * {
+    background-color: aqua;
+}
+/*Istedet for at give alle classes samme farve, kan man bare kigge på id container og alle børn af container med stjerne */
